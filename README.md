@@ -11,3 +11,9 @@
 
    `pip install lxml`
 5. Done.
+
+### Generating Projectfiles
+
+Run `xmake project -k cmake -y`.
+
+Then you can open this project with your favorite IDE.
