@@ -1,2 +1,3 @@
+#pragma once
 
-__declspec(dllimport) int Test();
+__declspec(dllexport) int Test();

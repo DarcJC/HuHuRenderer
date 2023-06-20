@@ -1,10 +1,9 @@
 
-#include <iostream>
 #include "Init.h"
 
 int main() {
 
-	std::cout << Test() << std::endl;
+    Test();
 
-	return 0;
+    return 0;
 }
