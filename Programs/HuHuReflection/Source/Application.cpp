@@ -1,7 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <filesystem>
-#include "clang-c/Index.h"
 #include "boost/program_options.hpp"
 #include "boost/filesystem.hpp"
 
@@ -47,6 +45,11 @@ int main(int argc, const char** argv) {
             OutFile << "void GetRegistry() { std::cout << \"123\" << std::endl;  }" << std::endl;
             OutFile << "}" << std::endl;
         }
+
+        std::cout << "Scanning directory < " << BasePath << " >" << std::endl;
+        boost::filesystem::recursive_directory_iterator DirectoryIter(BasePath);
+
+        return 0;
     }
 
     return 0;

@@ -7,6 +7,7 @@ add_requires("llvm-local", {
 })
 
 local generated_code_path = "$(buildir)/.refl"
+local project_dir = os.projectdir();
 
 target("huhu-reflection-parser")
     set_kind("binary")
@@ -23,7 +24,7 @@ target("huhu-reflection-parser")
     )
     after_build(
         function (target)
-            os.exec("\"%s\" --generate --intermediate=" .. generated_code_path .. " --path=${projectdir}", target:targetfile())
+            os.exec("\"%s\" --generate --intermediate=" .. generated_code_path .. " --path=" .. project_dir, target:targetfile())
         end
     )
 
@@ -32,4 +33,4 @@ target("huhu-reflection")
     set_kind("static")
     add_includedirs("Public", {public = true})
     add_deps("huhu-reflection-parser")
-    add_files("../../" .. generated_code_path .. "/*.cpp")
+    add_files(project_dir .. "/" .. generated_code_path .. "/*.cpp")
